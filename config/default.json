@@ -5,5 +5,30 @@
   "paginate": {
     "default": 10,
     "max": 50
-  }
+  },
+  "authentication": {
+    "secret": "7afcde161449fcbd3a784a4c5fdc61d1a4670018d36eb22a59ef1f1b13147f5465944dad38ee9f41f8a0f0dddec1dc0c426222317f1acebbc524101c24ee1eb3c0c60dc46c2c62486e969e865e63a15b32c57648926809a4d150ec96201d6a461a43786d2681df8ff63a0366973a68e2294dafdb23bf64609b325e44a628eab913d396d5aeec68cff31b335036f98ffab330190341d2b737320be074d5621cd1b8f78d2588d0446247ab10883643a2551404ed1618b1b671aaaca22c9bac86eee099eae5a8bf98c0533d347eaa017e7bdf98890ea59cda5ef314d61a93029b9e68b32e6f82e98b01c35a321721efd5837570eec82f484ffb01af03ac41f71691",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "postgres": "postgres://postgres:@localhost:5432/feathersjs_auth_meets_typescript"
 }

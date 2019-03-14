@@ -858,15 +858,9 @@ describe('Feathers Authentication endpoint tests', () => {
   describe('securing services', () => {
 
     let verifiedUser: User;
-    let mailerStub: sinon.SinonStub;
 
     beforeEach(async () => {
-      mailerStub = sinon.stub(app.service('mailer'), 'create');
       verifiedUser = await fg.factory.create('verifiedUser');
-    });
-
-    afterEach(() => {
-      mailerStub.restore();
     });
 
     describe('access token not present', () => {

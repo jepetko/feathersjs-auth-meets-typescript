@@ -24,10 +24,10 @@
   },
   "scripts": {
     "test": "npm run eslint && NODE_ENV= npm run mocha",
-    "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "dev": "nodemon src/",
-    "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit"
+    "tslint": "tslint --project .",
+    "start": "npm run serve",
+    "mocha": "NODE_ENV=test mocha -r ts-node/register './test/**/*.*(spec|support).ts' --exit --timeout 15000",
+    "serve": "ts-node src/index.ts"
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.16",
@@ -77,6 +77,7 @@
     "sinon": "^7.2.7",
     "ts-node": "^8.0.3",
     "tslint": "^5.13.1",
+    "tslint-no-unused-expression-chai": "^0.1.4",
     "typescript": "^3.3.3333"
   }
 }

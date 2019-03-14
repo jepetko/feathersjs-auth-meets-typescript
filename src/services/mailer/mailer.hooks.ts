@@ -1,8 +1,8 @@
+import * as commonHooks from 'feathers-hooks-common';
 
-
-module.exports = {
+export const MAILER_HOOKS = {
   before: {
-    all: [],
+    all: [commonHooks.disallow('external')],
     find: [],
     get: [],
     create: [],
@@ -20,7 +20,6 @@ module.exports = {
     patch: [],
     remove: []
   },
-
   error: {
     all: [],
     find: [],

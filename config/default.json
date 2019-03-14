@@ -30,5 +30,10 @@
       "passwordField": "password"
     }
   },
-  "postgres": "postgres://postgres:@localhost:5432/feathersjs_auth_meets_typescript"
+  "postgres": "postgres://demo:demo@localhost:5432/feathersjs_auth_meets_typescript",
+  "mailer": {
+    "host": "smtp.server.io",
+    "username": "mailer@server.io",
+    "password": "***"
+  }
 }

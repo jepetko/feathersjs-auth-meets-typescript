@@ -1,10 +1,10 @@
-const assert = require('assert');
-const rp = require('request-promise');
-const url = require('url');
-const app = require('../src/app');
+import {expect} from 'chai';
+import * as rp from 'request-promise';
+import app from '../src/app';
+import * as url from 'url';
 
 const port = app.get('port') || 3030;
-const getUrl = pathname => url.format({
+const getUrl = (pathname?: string) => url.format({
   hostname: app.get('host') || 'localhost',
   protocol: 'http',
   port,
@@ -22,21 +22,21 @@ describe('Feathers application tests', () => {
   });
 
   it('starts and shows the index page', () => {
-    return rp(getUrl()).then(body =>
-      assert.ok(body.indexOf('<html>') !== -1)
+    return rp(getUrl()).then((body) =>
+      expect(body.indexOf('<html>') !== -1).to.be.true
     );
   });
 
-  describe('404', function() {
+  describe('404', () => {
     it('shows a 404 HTML page', () => {
       return rp({
         url: getUrl('path/to/nowhere'),
         headers: {
-          'Accept': 'text/html'
+          Accept: 'text/html'
         }
-      }).catch(res => {
-        assert.equal(res.statusCode, 404);
-        assert.ok(res.error.indexOf('<html>') !== -1);
+      }).catch((res) => {
+        expect(res.statusCode).to.eq(404);
+        expect(res.error.indexOf('<html>') !== -1).to.eq(true);
       });
     });
 
@@ -44,11 +44,11 @@ describe('Feathers application tests', () => {
       return rp({
         url: getUrl('path/to/nowhere'),
         json: true
-      }).catch(res => {
-        assert.equal(res.statusCode, 404);
-        assert.equal(res.error.code, 404);
-        assert.equal(res.error.message, 'Page not found');
-        assert.equal(res.error.name, 'NotFound');
+      }).catch((res) => {
+        expect(res.statusCode).to.eq(404);
+        expect(res.error.code).to.eq(404);
+        expect(res.error.message).to.eq('Page not found');
+        expect(res.error.name).to.eq('NotFound');
       });
     });
   });

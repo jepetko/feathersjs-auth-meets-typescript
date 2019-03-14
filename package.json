@@ -23,10 +23,10 @@
     "npm": ">= 3.0.0"
   },
   "scripts": {
-    "test": "npm run eslint && NODE_ENV= npm run mocha",
+    "test": "npm run mocha",
     "tslint": "tslint --project .",
     "start": "npm run serve",
-    "mocha": "NODE_ENV=test mocha -r ts-node/register './test/**/*.*(spec|support).ts' --exit --timeout 15000",
+    "mocha": "NODE_ENV=test mocha -r ts-node/register './test/**/*.*(test|support).ts' --exit --timeout 15000",
     "serve": "ts-node src/index.ts"
   },
   "dependencies": {

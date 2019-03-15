@@ -1,4 +1,3 @@
-import {Model} from 'sequelize';
 import {Application, Id, NullableId, Paginated, Params, ServiceMethods} from '@feathersjs/feathers';
 import {AppServiceTypes} from '../service-types';
 import {SECRETS_HOOKS} from './secrets.hooks';

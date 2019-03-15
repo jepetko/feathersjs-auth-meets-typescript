@@ -15,7 +15,7 @@ export class Notifier {
 
   public static app: Application<AppServiceTypes>;
 
-  public  static notify(type: NotifierType, user: User, notifierOptions?: NotifierOptions) {
+  public static notify(type: NotifierType, user: User, notifierOptions?: NotifierOptions) {
 
     if (!Notifier.app) {
       return;
@@ -103,6 +103,8 @@ export class Notifier {
     const mailer = app.service('mailer') as ServiceMethods<MailRequest>;
     return mailer.create(mail);
   }
+
+  private constructor() {}
 }
 
 export function setupAuthManagementOptions(app: Application<AppServiceTypes>): NotifierReturnType {

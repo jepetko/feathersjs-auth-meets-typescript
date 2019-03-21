@@ -6,6 +6,8 @@
 
 This project shows how to use Feathers with Typescript. It adds authentication features incl. tests. For the latter see [test/app-auth.test.ts](test/app-auth.test.ts).
 
+See [Medium article](https://medium.com/@golbie/feathersjs-authentication-typed-and-tested-bb0de001dd11) for more explanation.
+
 ## Getting Started
 
 Getting up and running is as easy as 1, 2, 3.
